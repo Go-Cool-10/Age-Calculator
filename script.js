@@ -35,7 +35,7 @@ function calculateAge() {
         calMonth--;
         calDate = getDaysInMonth(calYear, calMonth) + currDate - birthDate
     }
-    if (currMonth < 0) {
+    if (calMonth < 0) {
         calMonth = 11;
         calYear--;
     }
