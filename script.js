@@ -14,8 +14,6 @@ function calculateAge() {
     let currMonth = currentDate.getMonth() + 1
     let currYear = currentDate.getFullYear()
 
-    console.log(DOB)
-
     let calDate, calMonth, calYear;
 
     calYear = currYear - birthYear
