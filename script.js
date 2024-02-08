@@ -8,37 +8,43 @@ function calculateAge() {
     let birthDate = DOB.getDate()
     let birthMonth = DOB.getMonth() + 1 // +1 because input month starts with 0 i.e. Jan is 0 
     let birthYear = DOB.getFullYear()
+    console.log(DOB)
 
-    let currentDate = new Date()
-    let currDate = currentDate.getDate()
-    let currMonth = currentDate.getMonth() + 1
-    let currYear = currentDate.getFullYear()
-
-    let calDate, calMonth, calYear;
-
-    calYear = currYear - birthYear
-
-    if (currMonth >= birthMonth) {
-        calMonth = currMonth - birthMonth
+    if (DOB == "Invalid Date") {
+        result.innerHTML = `Invalid Input`
     }
     else {
-        calYear--;
-        calMonth = 12 + currMonth - birthMonth
-    }
+        let currentDate = new Date()
+        let currDate = currentDate.getDate()
+        let currMonth = currentDate.getMonth() + 1
+        let currYear = currentDate.getFullYear()
 
-    if (currDate >= birthDate) {
-        calDate = currDate - birthDate
-    }
-    else {
-        calMonth--;
-        calDate = getDaysInMonth(calYear, calMonth) + currDate - birthDate
-    }
-    if (calMonth < 0) {
-        calMonth = 11;
-        calYear--;
-    }
+        let calDate, calMonth, calYear;
 
-    result.innerHTML = `You are <span>${calYear}</span> years, <span>${calMonth}</span> months and <span>${calDate}</span> days old`
+        calYear = currYear - birthYear
+
+        if (currMonth >= birthMonth) {
+            calMonth = currMonth - birthMonth
+        }
+        else {
+            calYear--;
+            calMonth = 12 + currMonth - birthMonth
+        }
+
+        if (currDate >= birthDate) {
+            calDate = currDate - birthDate
+        }
+        else {
+            calMonth--;
+            calDate = getDaysInMonth(calYear, calMonth) + currDate - birthDate
+        }
+        if (calMonth < 0) {
+            calMonth = 11;
+            calYear--;
+        }
+
+        result.innerHTML = `You are <span>${calYear}</span> years, <span>${calMonth}</span> months and <span>${calDate}</span> days old`
+    }
 }
 
 function getDaysInMonth(year, month) {
