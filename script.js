@@ -8,7 +8,6 @@ function calculateAge() {
     let birthDate = DOB.getDate()
     let birthMonth = DOB.getMonth() + 1 // +1 because input month starts with 0 i.e. Jan is 0 
     let birthYear = DOB.getFullYear()
-    console.log(DOB)
 
     if (DOB == "Invalid Date") {
         result.innerHTML = `Invalid Input`
